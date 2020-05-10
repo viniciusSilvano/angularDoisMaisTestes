@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Livro } from './interfaces/livro';
 
 @Component({
   selector: 'app-livros',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LivrosComponent implements OnInit {
 
+  public livros : Livro[];
+
   constructor() { }
 
   ngOnInit(): void {
+    this.livros.push({id: 1, nome: 'teste'});
   }
-
 }
