@@ -15,7 +15,7 @@ export class JavaTestProjectHomeComponent implements OnInit {
   ngOnInit(): void {
     this.items = [
       { 
-        label: 'teste-java-project',
+        label: 'home page',
         icon: 'pi pi-home',
         routerLink:"/home-page",     
       },
