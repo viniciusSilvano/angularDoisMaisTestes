@@ -11,7 +11,23 @@ export class ElasticSearchTestHomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-   
+   this.items = [
+    { 
+      label: 'Home Page',
+      icon: 'pi pi-home',
+      routerLink:"/home-page",     
+    },
+    {
+      label: 'Java Test Project',
+      icon: 'pi pi-folder',
+      routerLink: "/home-page/java-test-project"
+    },
+     {
+       label: 'Cadastrar',
+       icon: 'pi pi-pencil',
+       routerLink: '/home-page/java-test-project/elastic-search-test/cadastrar'
+     }
+   ]
   }
 
 }
