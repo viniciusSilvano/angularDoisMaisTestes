@@ -5,12 +5,15 @@ import { ElasticSearchTestRoutingModule } from './elastic-search-test-routing.mo
 import { MenusModule } from 'src/app/menu/menus.module';
 import { ElasticSearchTestHomeComponent } from './elastic-search-test-home/elastic-search-test-home.component';
 import { ElasticSearchTestRegisterComponent } from './elastic-search-test-register/elastic-search-test-register.component';
+import { InputTextModule, PanelModule } from 'primeng';
 
 
 @NgModule({
   declarations: [ElasticSearchTestHomeComponent, ElasticSearchTestRegisterComponent],
   imports: [
-    CommonModule,
+    CommonModule, 
+    InputTextModule,
+    PanelModule,
     ElasticSearchTestRoutingModule,
     MenusModule
   ]

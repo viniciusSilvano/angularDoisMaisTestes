@@ -1,3 +1,4 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -14,6 +15,7 @@ import { JavaTestProjectModule } from './java-test-project/java-test-project.mod
     HomePageComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     LivrosModule,
     AppRoutingModule,
