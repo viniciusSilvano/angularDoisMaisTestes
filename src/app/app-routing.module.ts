@@ -15,7 +15,7 @@ const routes: Routes = [
   },
  {
     path: 'home-page/java-test-project',
-    loadChildren: () => import('../app/testeJavaProject/java-test-project/java-test-project.module').then(m => m.JavaTestProjectModule)
+    loadChildren: () => import('../app/java-test-project/java-test-project.module').then(m => m.JavaTestProjectModule)
  }
 ];
 

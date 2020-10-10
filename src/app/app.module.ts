@@ -4,9 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LivrosModule } from './livros/livros.module';
-import { JavaTestProjectModule } from './testeJavaProject/java-test-project/java-test-project.module';
 import { HomePageComponent } from './home-page/home-page.component';
 import { MenusModule } from './menu/menus.module';
+import { JavaTestProjectModule } from './java-test-project/java-test-project.module';
 
 @NgModule({
   declarations: [

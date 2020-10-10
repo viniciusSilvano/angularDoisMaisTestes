@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 
 @Component({
-  selector: 'app-java-test-project',
-  templateUrl: './java-test-project.component.html',
-  styleUrls: ['./java-test-project.component.css']
+  selector: 'app-java-test-project-home',
+  templateUrl: './java-test-project-home.component.html',
+  styleUrls: ['./java-test-project-home.component.css']
 })
 export class JavaTestProjectComponent implements OnInit {
 
@@ -26,7 +26,7 @@ export class JavaTestProjectComponent implements OnInit {
         items: [{
           label: 'ElasticSearch',
           icon: 'pi pi-file',
-          routerLink:"/java-test-project/elastic-search-test"
+          routerLink:"/home-page/java-test-project/elastic-search-test"
         }]
       }
     ]
