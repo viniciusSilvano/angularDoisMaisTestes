@@ -6,7 +6,7 @@ import { MenuItem } from 'primeng/api';
   templateUrl: './java-test-project-home.component.html',
   styleUrls: ['./java-test-project-home.component.css']
 })
-export class JavaTestProjectComponent implements OnInit {
+export class JavaTestProjectHomeComponent implements OnInit {
 
   items: MenuItem[];
   

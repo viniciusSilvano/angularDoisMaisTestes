@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ElasticSearchTestComponent } from './home-page/elastic-search-test.component';
+import { ElasticSearchTestHomeComponent } from './elastic-search-test-home/elastic-search-test-home.component';
 
 
 const routes: Routes = [
   {
     path: 'home-page/java-test-project/elastic-search-test',
-    component: ElasticSearchTestComponent
+    component: ElasticSearchTestHomeComponent
   },
   {
     path: '',
