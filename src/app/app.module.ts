@@ -8,6 +8,7 @@ import { LivrosModule } from './livros/livros.module';
 import { HomePageComponent } from './home-page/home-page.component';
 import { MenusModule } from './menu/menus.module';
 import { JavaTestProjectModule } from './java-test-project/java-test-project.module';
+import { TestesAngularModule } from './testes-angular/testes-angular.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { JavaTestProjectModule } from './java-test-project/java-test-project.mod
     LivrosModule,
     AppRoutingModule,
     JavaTestProjectModule,
-    MenusModule
+    MenusModule,
+    TestesAngularModule
   ],
   providers: [],
   bootstrap: [AppComponent]
