@@ -10,8 +10,7 @@ import { MenuItem } from 'primeng/api';
 export class ElasticSearchTestRegisterComponent implements OnInit {
 
   elasticSearchRegisterForm: FormGroup=  new FormGroup({
-    elasticSearchName: new FormControl('')
-
+    colaboradorNome: new FormControl('')
   });
   items: MenuItem[] = [];
 
