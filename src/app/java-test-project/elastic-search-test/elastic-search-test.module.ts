@@ -5,7 +5,8 @@ import { ElasticSearchTestRoutingModule } from './elastic-search-test-routing.mo
 import { MenusModule } from 'src/app/menu/menus.module';
 import { ElasticSearchTestHomeComponent } from './elastic-search-test-home/elastic-search-test-home.component';
 import { ElasticSearchTestRegisterComponent } from './elastic-search-test-register/elastic-search-test-register.component';
-import { InputTextModule, PanelModule } from 'primeng';
+import { ButtonModule, InputTextModule, PanelModule } from 'primeng';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +16,10 @@ import { InputTextModule, PanelModule } from 'primeng';
     InputTextModule,
     PanelModule,
     ElasticSearchTestRoutingModule,
-    MenusModule
+    MenusModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ButtonModule
   ]
 })
 export class ElasticSearchTestModule { }

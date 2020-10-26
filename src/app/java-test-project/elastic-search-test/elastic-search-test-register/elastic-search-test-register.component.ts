@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { MenuItem } from 'primeng/api';
 
 @Component({
@@ -8,6 +9,10 @@ import { MenuItem } from 'primeng/api';
 })
 export class ElasticSearchTestRegisterComponent implements OnInit {
 
+  elasticSearchRegisterForm: FormGroup=  new FormGroup({
+    elasticSearchName: new FormControl('')
+
+  });
   items: MenuItem[] = [];
 
   constructor() { }
@@ -30,6 +35,10 @@ export class ElasticSearchTestRegisterComponent implements OnInit {
         routerLink: "/home-page/java-test-project/elastic-search-test"
       }
     ]
+  }
+
+  public save(){
+    console.log("save button clicked, form:  ", this.elasticSearchRegisterForm);
   }
 
 }
