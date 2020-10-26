@@ -9,8 +9,8 @@ import { MenuItem } from 'primeng/api';
 })
 export class ElasticSearchTestRegisterComponent implements OnInit {
 
-  elasticSearchRegisterForm: FormGroup=  new FormGroup({
-    colaboradorNome: new FormControl('')
+  elasticSearchColaboradorRegisterForm: FormGroup=  new FormGroup({
+    elasticColaboradorNome: new FormControl('')
   });
   items: MenuItem[] = [];
 
@@ -37,7 +37,7 @@ export class ElasticSearchTestRegisterComponent implements OnInit {
   }
 
   public save(){
-    console.log("save button clicked, form:  ", this.elasticSearchRegisterForm);
+    console.log("save button clicked, form:  ", this.elasticSearchColaboradorRegisterForm);
   }
 
 }
