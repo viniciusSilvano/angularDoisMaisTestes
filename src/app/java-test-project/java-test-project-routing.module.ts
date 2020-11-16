@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { JavaTestProjectHomeComponent } from './java-test-project-home/java-test-project-home.component';
+import { WebSocketTestComponent } from './web-socket-test/web-socket-test.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'home-page/java-test-project',
     component: JavaTestProjectHomeComponent
+  },
+  {
+    path: 'home-page/java-test-project/web-socket-test',
+    component: WebSocketTestComponent
   }
 ];
 

@@ -1,3 +1,8 @@
+import { ColaboradorService } from './../../../shared/services/colaboradores/colaborador.service';
+
+
+import { Colaborador } from './../../../shared/models/Colaborador';
+
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MenuItem } from 'primeng/api';
@@ -14,7 +19,7 @@ export class ElasticSearchTestRegisterComponent implements OnInit {
   });
   items: MenuItem[] = [];
 
-  constructor() { }
+  constructor(private colaboradorService: ColaboradorService) { }
 
   ngOnInit(): void {
     this.items = [
@@ -37,7 +42,14 @@ export class ElasticSearchTestRegisterComponent implements OnInit {
   }
 
   public save(){
-    console.log("save button clicked, form:  ", this.elasticSearchColaboradorRegisterForm);
+    console.log("save button clicked, form:  ", this.elasticSearchColaboradorRegisterForm.value.elasticColaboradorNome);
+    let entidade: Colaborador = new Colaborador();
+    entidade.nome = this.elasticSearchColaboradorRegisterForm.value.elasticColaboradorNome;
+    this.colaboradorService.indexar(entidade).subscribe(i =>{
+      console.log("Sucesso ao indexar");
+    },e => {
+      console.log("Erro durante indexação: ", e);
+    });
   }
 
 }

@@ -1,3 +1,4 @@
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -9,6 +10,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { MenusModule } from './menu/menus.module';
 import { JavaTestProjectModule } from './java-test-project/java-test-project.module';
 import { TestesAngularModule } from './testes-angular/testes-angular.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { TestesAngularModule } from './testes-angular/testes-angular.module';
     AppRoutingModule,
     JavaTestProjectModule,
     MenusModule,
-    TestesAngularModule
+    TestesAngularModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

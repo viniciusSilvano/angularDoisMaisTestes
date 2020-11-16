@@ -1,15 +1,19 @@
+import { Routes } from '@angular/router';
+import { TableModule } from 'primeng/table';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { TestesAngularRoutingModule } from './testes-angular-routing.module';
 import { TestePTableComponent } from './teste-p-table/teste-p-table.component';
 
-
 @NgModule({
   declarations: [TestePTableComponent],
   imports: [
     CommonModule,
+    TableModule,
     TestesAngularRoutingModule
   ]
 })
-export class TestesAngularModule { }
+export class TestesAngularModule { 
+
+}

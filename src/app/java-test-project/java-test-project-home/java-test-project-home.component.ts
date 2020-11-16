@@ -27,6 +27,11 @@ export class JavaTestProjectHomeComponent implements OnInit {
           label: 'ElasticSearch',
           icon: 'pi pi-file',
           routerLink:"/home-page/java-test-project/elastic-search-test"
+        },
+        {
+          label: 'WebSocketTest',
+          icon: 'pi pi-file',
+          routerLink:"/home-page/java-test-project/web-socket-test"
         }]
       }
     ]

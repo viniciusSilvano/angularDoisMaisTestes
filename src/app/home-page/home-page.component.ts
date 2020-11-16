@@ -17,6 +17,11 @@ export class HomePageComponent implements OnInit {
         label: 'Java Test Project',
         icon: 'pi pi-folder',
         routerLink:"/home-page/java-test-project"
+      },
+      {
+        label: 'Angular testes',
+        icon: 'pi pi-folder',
+        routerLink:"/home-page/testes-angular"
       }
     ]
   }
