@@ -16,7 +16,8 @@ export class TestePTableComponent implements OnInit {
   multiSortMeta;
   totalRecords: number;
   checkedAll = false;
-  pessoasSelecionadas: Map<number,Pessoa> = new Map<number,Pessoa>();
+  pessoasSelecionadasMap: Map<number,Pessoa> = new Map<number,Pessoa>();
+  pessoasSelecionadas: Pessoa[]
 
   estaProcessandoCheckBoxAll = false;
   estaProcessandoCheckBoxRow = false;
@@ -59,17 +60,18 @@ export class TestePTableComponent implements OnInit {
   }
 
   private alterarValorSelecaoPorRegistro(pessoa: Pessoa){
-    if(this.pessoasSelecionadas.has(pessoa.id)){
-      this.pessoasSelecionadas.delete(pessoa.id);
+    if(this.pessoasSelecionadasMap.has(pessoa.id)){
+      this.pessoasSelecionadasMap.delete(pessoa.id);
       pessoa.selecionado = false;
     }else{
-      this.pessoasSelecionadas.set(pessoa.id,pessoa);
+      this.pessoasSelecionadasMap.set(pessoa.id,pessoa);
       pessoa.selecionado = true;
     }
+    this.pessoasSelecionadas = Array.from(this.pessoasSelecionadasMap.values());
   }
 
   public estaoTodosSelecionados(){
-    return this.pessoasSelecionadas.size === this.totalRecords;
+    return this.pessoasSelecionadasMap.size === this.totalRecords;
   }
 
   public checkBoxAllClick(){
