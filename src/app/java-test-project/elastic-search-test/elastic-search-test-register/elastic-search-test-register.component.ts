@@ -5,7 +5,7 @@ import { Colaborador } from './../../../shared/models/Colaborador';
 
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { MenuItem } from 'primeng/api';
+import { MenuItem, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-elastic-search-register',
@@ -19,7 +19,9 @@ export class ElasticSearchTestRegisterComponent implements OnInit {
   });
   items: MenuItem[] = [];
 
-  constructor(private colaboradorService: ColaboradorService) { }
+  constructor(
+    private colaboradorService: ColaboradorService,
+    private messageService: MessageService ) { }
 
   ngOnInit(): void {
     this.items = [
@@ -47,8 +49,10 @@ export class ElasticSearchTestRegisterComponent implements OnInit {
     entidade.nome = this.elasticSearchColaboradorRegisterForm.value.elasticColaboradorNome;
     this.colaboradorService.indexar(entidade).subscribe(i =>{
       console.log("Sucesso ao indexar");
+      this.messageService.add({severity:'success', summary:'Sucesso', detail:'Sucesso ao indexar entidade'});
     },e => {
       console.log("Erro durante indexação: ", e);
+      this.messageService.add({severity:'error', summary: 'Error ao indexar', detail:`erro: ${e.message}`});
     });
   }
 

@@ -32,6 +32,11 @@ export class JavaTestProjectHomeComponent implements OnInit {
           label: 'WebSocketTest',
           icon: 'pi pi-file',
           routerLink:"/home-page/java-test-project/web-socket-test"
+        },
+        {
+          label: 'Cytoscape Test',
+          icon: 'pi pi-file',
+          routerLink: "home-page/java-test-project/cytoscape-test"
         }]
       }
     ]
