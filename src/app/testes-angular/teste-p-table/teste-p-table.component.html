@@ -1,9 +1,12 @@
 <p>teste-p-table works!</p>
 <p-table [columns]="cols" [value]="pessoas" sortMode="multiple" [multiSortMeta]="multiSortMeta"
     (onLazyLoad)="loadDataOnScroll($event)" [lazy]="true" [totalRecords]="totalRecords">
-    
+
     <ng-template pTemplate="header" let-columns>
         <tr>
+            <th>
+              <p-checkbox name="checkAll" (onChange)="checkBoxAllClick()"></p-checkbox>
+            </th>
             <th *ngFor="let col of columns" [pSortableColumn]="col.field">
                 {{col.header}}
             </th>
@@ -11,6 +14,9 @@
     </ng-template>
     <ng-template pTemplate="body" let-rowData let-columns="columns">
         <tr>
+            <td>
+              <p-checkbox (click)="checkBoxRowOnClick(rowData)"></p-checkbox>
+            </td>
             <td *ngFor="let col of columns">
                 {{rowData[col.field]}}
             </td>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Pessoa } from './pessoa/pessoa';
+import { PaginaEntidade } from 'src/app/shared/models/PaginaEntidade';
+import { PessoaService } from 'src/app/shared/services/pessoas/pessoa.service';
+import { Pessoa } from '../../shared/models/Pessoa';
 
 @Component({
   selector: 'app-teste-p-table',
@@ -8,30 +10,40 @@ import { Pessoa } from './pessoa/pessoa';
 })
 export class TestePTableComponent implements OnInit {
 
-  constructor() { }
   cols: any;
   pessoas: Pessoa[] = [];
+  paginaPessoa: PaginaEntidade;
   multiSortMeta;
   totalRecords: number;
-  private pessoasBanco = [
-    {"id": 1,"nome":"João","idade": 20},
-    {"id": 2,"nome":"Maria","idade": 12},
-    {"id": 3,"nome":"Zeref","idade": 50},
-    {"id": 4,"nome":"Abigail","idade": 30}
-  ]
+
+  checkedAll = false;
+  constructor(private pessoaService: PessoaService) { }
 
   ngOnInit(): void {
+    this.inicializarTabela();
+  }
+
+  private inicializarTabela(){
     this.cols = [
-        { field: 'id', header: 'ID' },
-        { field: 'nome', header: 'Nome' },
-        { field: 'idade', header: 'IDADE'}
+      { field: 'id', header: 'ID' },
+      { field: 'nome', header: 'Nome' },
+      { field: 'idade', header: 'IDADE'}
     ];
-    this.pessoas = this.pessoasBanco.map(pb => new Pessoa(pb.id,pb.nome,pb.idade));
-    this.totalRecords = this.pessoas.length;
+    this.paginaPessoa = this.pessoaService.listarTodosPaginado();
+    this.pessoas = this.paginaPessoa.entidades;
+    this.totalRecords = this.paginaPessoa.total;
   }
 
   public loadDataOnScroll($event){
     console.log("Lazy: ", $event);
+  }
+
+  public checkBoxRowOnClick(pessoa: Pessoa){
+    pessoa.selecionado = !pessoa.selecionado;
+  }
+
+  public checkBoxAllClick(){
+    this.checkedAll = !this.checkedAll;
   }
 
 }
