@@ -15,8 +15,12 @@ export class TestePTableComponent implements OnInit {
   paginaPessoa: PaginaEntidade;
   multiSortMeta;
   totalRecords: number;
-
   checkedAll = false;
+  pessoasSelecionadas: Map<number,Pessoa> = new Map<number,Pessoa>();
+
+  estaProcessandoCheckBoxAll = false;
+  estaProcessandoCheckBoxRow = false;
+
   constructor(private pessoaService: PessoaService) { }
 
   ngOnInit(): void {
@@ -39,11 +43,56 @@ export class TestePTableComponent implements OnInit {
   }
 
   public checkBoxRowOnClick(pessoa: Pessoa){
-    pessoa.selecionado = !pessoa.selecionado;
+    if(!this.estaProcessandoCheckBoxRow){
+      this.estaProcessandoCheckBoxRow = true;
+
+      this.alterarValorSelecaoPorRegistro(pessoa);
+
+      if(this.estaoTodosSelecionados()){
+        this.checkedAll = true;
+      }else{
+        this.checkedAll = false;
+      }
+
+      this.estaProcessandoCheckBoxRow = false;
+    }
+  }
+
+  private alterarValorSelecaoPorRegistro(pessoa: Pessoa){
+    if(this.pessoasSelecionadas.has(pessoa.id)){
+      this.pessoasSelecionadas.delete(pessoa.id);
+      pessoa.selecionado = false;
+    }else{
+      this.pessoasSelecionadas.set(pessoa.id,pessoa);
+      pessoa.selecionado = true;
+    }
+  }
+
+  public estaoTodosSelecionados(){
+    return this.pessoasSelecionadas.size === this.totalRecords;
   }
 
   public checkBoxAllClick(){
-    this.checkedAll = !this.checkedAll;
+    if(!this.estaProcessandoCheckBoxAll){
+      this.estaProcessandoCheckBoxAll = true;
+      this.modificarValorSelecaoPessoas(this.checkedAll);
+      this.estaProcessandoCheckBoxAll = false;
+    }
+  }
+
+  private modificarValorSelecaoPessoas(valorSelecao: boolean){
+    for (var pessoa of this.pessoas) {
+      pessoa.selecionado = valorSelecao;
+    }
+  }
+
+  public mostrarRegistrosSelecionados(){
+    console.log("Registros Selecionados: ");
+    console.log("-----------------------------");
+    for (var value of this.pessoasSelecionadas.values()) {
+      console.log("\t ", JSON.stringify(value));
+    }
+    console.log("-----------------------------");
   }
 
 }
