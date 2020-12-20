@@ -1,3 +1,5 @@
+import { WebSocketProgress } from './../../shared/models/WebSocketProgress';
+import { WebsocketTesteJavaService } from './../../shared/services/websocket-teste-java/websocket-teste-java.service';
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng';
 
@@ -7,15 +9,18 @@ import { MenuItem } from 'primeng';
   styleUrls: ['./web-socket-test.component.css']
 })
 export class WebSocketTestComponent implements OnInit {
+
+  constructor(private websocketTesteJavaService: WebsocketTesteJavaService) { }
+
   items: MenuItem[] = [];
-  constructor() { }
+  progresso: WebSocketProgress = new WebSocketProgress();
 
   ngOnInit(): void {
     this.items = [
-      { 
+      {
         label: 'Home Page',
         icon: 'pi pi-home',
-        routerLink:"/home-page",     
+        routerLink:"/home-page",
       },
       {
         label: 'Java Test Project',
@@ -23,6 +28,18 @@ export class WebSocketTestComponent implements OnInit {
         routerLink: "/home-page/java-test-project"
       }
      ]
+    this.initWebSocket();
   }
 
+  sendMessage(){
+    this.websocketTesteJavaService.sendMessage("teste");
+  }
+
+  initWebSocket(){
+    this.websocketTesteJavaService.getWebSocket().subscribe(
+      msg =>  this.progresso = msg,
+      err => console.log(err), // Called if at any point WebSocket API signals some kind of error.
+      () => console.log('complete') // Called when connection is closed (for whatever reason).
+    );
+  }
 }
