@@ -8,6 +8,7 @@ import { ElasticSearchTestRegisterComponent } from './elastic-search-test-regist
 import { ButtonModule, InputTextModule, MessageService, PanelModule } from 'primeng';
 import {ToastModule} from 'primeng/toast';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -16,7 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MessageService
   ],
   imports: [
-    CommonModule, 
+    CommonModule,
     InputTextModule,
     PanelModule,
     ElasticSearchTestRoutingModule,
@@ -24,7 +25,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     ButtonModule,
-    ToastModule
+    ToastModule,
+    HttpClientModule
   ]
 })
 export class ElasticSearchTestModule { }
