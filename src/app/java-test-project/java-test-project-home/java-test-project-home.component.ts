@@ -9,15 +9,15 @@ import { MenuItem } from 'primeng/api';
 export class JavaTestProjectHomeComponent implements OnInit {
 
   items: MenuItem[];
-  
+
   constructor() { }
 
   ngOnInit(): void {
     this.items = [
-      { 
+      {
         label: 'Home Page',
         icon: 'pi pi-home',
-        routerLink:"/home-page",     
+        routerLink:"/home-page",
       },
       {
         label: 'Tests',
@@ -36,7 +36,12 @@ export class JavaTestProjectHomeComponent implements OnInit {
         {
           label: 'Cytoscape Test',
           icon: 'pi pi-file',
-          routerLink: "home-page/java-test-project/cytoscape-test"
+          routerLink: "/home-page/java-test-project/cytoscape-test"
+        },
+        {
+          label: 'ZIP Test',
+          icon: 'pi pi-file',
+          routerLink: "/home-page/java-test-project/zip-test"
         }]
       }
     ]

@@ -7,6 +7,8 @@ import { ElasticSearchTestModule } from './elastic-search-test/elastic-search-te
 import { JavaTestProjectHomeComponent } from './java-test-project-home/java-test-project-home.component';
 import { WebSocketTestModule } from './web-socket-test/web-socket-test.module';
 import { HttpClientModule } from '@angular/common/http';
+import { CytoscapeTestModule } from './cytoscape-test/cytoscape-test.module';
+import { ZipTestModule } from './zip-test/zip-test.module';
 @NgModule({
   declarations: [JavaTestProjectHomeComponent],
   imports: [
@@ -15,7 +17,9 @@ import { HttpClientModule } from '@angular/common/http';
     ElasticSearchTestModule,
     WebSocketTestModule,
     MenusModule,
-    HttpClientModule
+    HttpClientModule,
+    CytoscapeTestModule,
+    ZipTestModule
   ],
 })
 export class JavaTestProjectModule { }

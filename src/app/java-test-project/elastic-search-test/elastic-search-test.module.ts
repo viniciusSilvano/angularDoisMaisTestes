@@ -9,10 +9,11 @@ import { ButtonModule, InputTextModule, MessageService, PanelModule } from 'prim
 import {ToastModule} from 'primeng/toast';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ElasticSearchTestListColaboradorComponent } from './elastic-search-test-list-colaborador/elastic-search-test-list-colaborador.component';
 
 
 @NgModule({
-  declarations: [ElasticSearchTestHomeComponent, ElasticSearchTestRegisterComponent],
+  declarations: [ElasticSearchTestHomeComponent, ElasticSearchTestRegisterComponent, ElasticSearchTestListColaboradorComponent],
   providers:[
     MessageService
   ],

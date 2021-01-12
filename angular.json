@@ -31,7 +31,9 @@
               "node_modules/primeng/resources/primeng.min.css",
               "node_modules/primeflex/primeflex.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/cytoscape/dist/cytoscape.min.js"
+            ]
           },
           "configurations": {
             "production": {

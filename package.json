@@ -23,6 +23,7 @@
     "@fullcalendar/core": "^5.3.1",
     "@fullcalendar/daygrid": "^5.3.2",
     "chart.js": "^2.9.3",
+    "cytoscape": "^3.17.1",
     "primeflex": "^2.0.0",
     "primeicons": "^3.0.0-rc.1",
     "primeng": "^9.0.6",
