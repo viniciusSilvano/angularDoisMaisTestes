@@ -1,5 +1,5 @@
+import { BACKEND_URL } from './../../../../environments/environment';
 import { Colaborador } from '../../models/Colaborador';
-import { BACKEND_URL } from '../../config/config';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';

@@ -1,3 +1,5 @@
+import { BACKEND_URL } from './../../../../environments/environment';
+import { ZipTestService } from './../../../shared/services/zip-test/zip-test.service';
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng';
 
@@ -8,7 +10,7 @@ import { MenuItem } from 'primeng';
 })
 export class ZipTestHomeComponent implements OnInit {
   items: MenuItem[] = [];
-  constructor() { }
+  constructor(private zipTestService: ZipTestService) { }
 
   ngOnInit(): void {
     this.items = [
@@ -23,6 +25,20 @@ export class ZipTestHomeComponent implements OnInit {
         routerLink: "/home-page/java-test-project"
       }
      ]
+  }
+
+  getUrlDownloadTest(){
+    return `${BACKEND_URL}/teste-zip/download`;
+  }
+
+  downloadTestZip(){
+    this.zipTestService.downloadZipTest().subscribe(data => {
+      const blob = new Blob([data], {
+        type: 'application/zip'
+      });
+      const url = window.URL.createObjectURL(blob);
+      window.open(url);
+    });
   }
 
 }

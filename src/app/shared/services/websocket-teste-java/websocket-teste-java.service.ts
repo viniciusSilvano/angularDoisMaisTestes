@@ -1,4 +1,4 @@
-import { BACKEND_URL } from './../../config/config';
+import { BACKEND_URL } from './../../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { webSocket } from "rxjs/webSocket";
 
