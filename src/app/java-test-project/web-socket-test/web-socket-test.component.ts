@@ -36,10 +36,22 @@ export class WebSocketTestComponent implements OnInit {
   }
 
   initWebSocket(){
-    this.websocketTesteJavaService.getWebSocket().subscribe(
+    this.websocketTesteJavaService.getWebSocket().onmessage = ({data}) => {
+      this.progresso = data
+    }
+
+    this.websocketTesteJavaService.getWebSocket().onclose = () => {
+      console.log("web socket fechado");
+    }
+
+    this.websocketTesteJavaService.getWebSocket().onerror = () => {
+      console.error("erro no web socket");
+    }
+    /*this.websocketTesteJavaService.getWebSocket().subscribe(
       msg =>  this.progresso = msg,
       err => console.log(err), // Called if at any point WebSocket API signals some kind of error.
       () => console.log('complete') // Called when connection is closed (for whatever reason).
-    );
+    );*/
+
   }
 }

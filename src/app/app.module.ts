@@ -1,3 +1,4 @@
+import { WebsocketTesteJavaService } from './shared/services/websocket-teste-java/websocket-teste-java.service';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
@@ -27,7 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
     TestesAngularModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [WebsocketTesteJavaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

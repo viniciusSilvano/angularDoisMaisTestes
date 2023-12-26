@@ -1,1 +1,11 @@
-<p>elastic-search-test-list-colaborador works!</p>
+<app-main-menu [items]="items" [titulo]="'Elastic Search Test - listing'"></app-main-menu>
+
+<div class="mt-2">
+  <input pInputText type="text" [(ngModel)]="colaboradorName">
+  <p-button class="mt-1" label="list" (click)="getColaboradorByName()"></p-button>
+  <ul>
+    <li *ngFor="let colaborador of colaboradores; index as i; first as isFirst">
+      {{colaborador.nome}}
+    </li>
+  </ul>
+</div>

@@ -25,3 +25,13 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Visual Studio Code
+
+Version: 1.84.2 (user setup)
+Node.js: 18.15.0
+
+## NPM - NODE project
+
+Version 10.24.1
+

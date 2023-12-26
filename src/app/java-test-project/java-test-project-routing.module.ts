@@ -19,11 +19,6 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home-page/java-test-project',
-    pathMatch: 'full'
-  },
-  {
-    path: 'home-page/java-test-project',
     component: JavaTestProjectHomeComponent
   },
   {

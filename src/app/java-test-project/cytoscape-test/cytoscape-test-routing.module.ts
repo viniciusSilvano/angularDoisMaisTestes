@@ -5,13 +5,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'home-page/java-test-project/cytoscape-test-home',
-    component: CytoscapeTestHomeComponent
-  },
-  {
     path: '',
-    redirectTo: 'home-page/java-test-project/cytoscape-test-home',
-    pathMatch: 'full'
+    component: CytoscapeTestHomeComponent
   }
 ];
 

@@ -1,7 +1,7 @@
 import { BACKEND_URL } from './../../../../environments/environment';
 import { Colaborador } from '../../models/Colaborador';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -20,6 +20,8 @@ export class ColaboradorService {
   }
 
   searchByName(nome: string) : Observable<Colaborador[]>{
-    return this.http.get<Colaborador[]>(`${this.serviceUrl}/{$nome}`);
+    if(nome){
+      return this.http.get<Colaborador[]>(`${this.serviceUrl}/${nome}`);
+    }
   }
 }

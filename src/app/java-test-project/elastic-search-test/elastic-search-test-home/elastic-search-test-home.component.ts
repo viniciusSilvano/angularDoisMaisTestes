@@ -12,10 +12,10 @@ export class ElasticSearchTestHomeComponent implements OnInit {
 
   ngOnInit(): void {
    this.items = [
-    { 
+    {
       label: 'Home Page',
       icon: 'pi pi-home',
-      routerLink:"/home-page",     
+      routerLink:"/home-page",
     },
     {
       label: 'Java Test Project',
@@ -26,6 +26,11 @@ export class ElasticSearchTestHomeComponent implements OnInit {
        label: 'Cadastrar',
        icon: 'pi pi-pencil',
        routerLink: '/home-page/java-test-project/elastic-search-test/cadastrar'
+     },
+     {
+       label: 'Listar',
+       icon: 'pi pi-list',
+       routerLink: '/home-page/java-test-project/elastic-search-test/listar'
      }
    ]
   }

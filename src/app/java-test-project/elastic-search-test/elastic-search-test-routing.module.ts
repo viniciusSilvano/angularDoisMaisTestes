@@ -1,3 +1,4 @@
+import { ElasticSearchTestListColaboradorComponent } from './elastic-search-test-list-colaborador/elastic-search-test-list-colaborador.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ElasticSearchTestHomeComponent } from './elastic-search-test-home/elastic-search-test-home.component';
@@ -12,11 +13,15 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'home-page/java-test-project/elastic-search-test',
-    pathMatch: 'full' 
+    pathMatch: 'full'
   },
   {
     path: 'home-page/java-test-project/elastic-search-test/cadastrar',
     component: ElasticSearchTestRegisterComponent
+  },
+  {
+    path: 'home-page/java-test-project/elastic-search-test/listar',
+    component: ElasticSearchTestListColaboradorComponent
   }
 ];
 
