@@ -60,6 +60,9 @@ export class CacheService {
   AtivarDesativarCache(){
     this.cacheAtivo = !this.cacheAtivo;
     localStorage.setItem(this.chaveCacheAtivo, this.cacheAtivo.toString());
+    if(!this.cacheAtivo){
+      this.removerCache();
+    }
   }
 
   cacheEstaAtivo(){

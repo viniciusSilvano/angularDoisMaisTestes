@@ -32,8 +32,9 @@ export class HomePageComponent implements OnInit {
     let map = new Map();
     localStorage.myMap = JSON.stringify(Array.from(map.entries()));
     console.log('Inserindo caches');
-    this.cacheService.inserirCache(`${this.chaveCache}_42010_06`,'500');
-    this.cacheService.inserirCache(`${this.chaveCache}_52024_06`,'600');
+    let somenteNaoContabilizados = true;
+    this.cacheService.inserirCache(`${this.chaveCache}_42010_06_${somenteNaoContabilizados}`,'500');
+    this.cacheService.inserirCache(`${this.chaveCache}_52024_06_${somenteNaoContabilizados}`,'600');
 
     console.log('recuperando cache se existir')
     if(this.cacheService.contemCache(`${this.chaveCache}_42010_06`)){
