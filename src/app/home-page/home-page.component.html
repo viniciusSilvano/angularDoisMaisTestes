@@ -1,1 +1,4 @@
 <app-main-menu [items]="items" [titulo]="'Home Page'"></app-main-menu>
+<button (click)="testeCache()">Iniciar teste Cache</button>
+<button [disabled]="!cacheEstaAtivo()" (click)="removerCache()">Remover Cache</button>
+<button (click)="AtivarDesativarCache()">{{cacheEstaAtivo() ? 'Desativar' : 'Ativar'}} Cache</button>
