@@ -8,9 +8,11 @@ import { Injectable } from '@angular/core';
 export class WebsocketTesteJavaService {
 
   private websocket;
-  constructor() { this.webSocketInit();}
+  constructor() { 
+    //this.webSocketInit();
+  }
 
-  private webSocketInit(){
+  webSocketInit(){
     //this.websocket = webSocket(`ws://${BACKEND_URL}/javaTestProjectWebSocket`);
     this.websocket = new WebSocket(`ws://localhost:8080/javaTeste/javaTestProjectWebSocket`);
   }
@@ -23,4 +25,5 @@ export class WebsocketTesteJavaService {
   getWebSocket(){
     return this.websocket;
   }
+  
 }
