@@ -28,20 +28,36 @@ export class WebSocketTestComponent implements OnInit {
         routerLink: "/home-page/java-test-project"
       }
      ]
-    this.initWebSocket();
+    this.websocketTesteJavaService.webSocketInit();
+    this.initWebSocketEvent();
   }
 
   sendMessage(){
-    this.websocketTesteJavaService.sendMessage("teste");
+    //this.initWebSocket();
+    console.log("status websocket: ", this.websocketTesteJavaService.getWebSocket().readyState)
+    if (this.websocketTesteJavaService.getWebSocket().readyState === WebSocket.CLOSED) {
+      this.websocketTesteJavaService.webSocketInit();
+      this.initWebSocketEvent();
+      this.websocketTesteJavaService.getWebSocket().onopen =  () => {
+        this.websocketTesteJavaService.getWebSocket().send("teste");
+      };
+      // Do your stuff...
+   }else{
+     this.websocketTesteJavaService.sendMessage("teste");
+   }
   }
 
-  initWebSocket(){
+  initWebSocketEvent(){
+   
     this.websocketTesteJavaService.getWebSocket().onmessage = ({data}) => {
-      this.progresso = data
+      console.log("receiving websocket message: ", data ? JSON.stringify(data) : "");
+      console.log(JSON.parse(data).progress);
+      this.progresso.progress = JSON.parse(data).progress;
     }
 
     this.websocketTesteJavaService.getWebSocket().onclose = () => {
       console.log("web socket fechado");
+      this.websocketTesteJavaService.webSocketInit();
     }
 
     this.websocketTesteJavaService.getWebSocket().onerror = () => {
