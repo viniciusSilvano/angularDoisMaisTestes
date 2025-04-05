@@ -7,14 +7,16 @@ import { Injectable } from '@angular/core';
 })
 export class WebsocketTesteJavaService {
 
-  private websocket;
+  private websocket: WebSocket;
   constructor() { 
     //this.webSocketInit();
   }
 
   webSocketInit(){
     //this.websocket = webSocket(`ws://${BACKEND_URL}/javaTestProjectWebSocket`);
-    this.websocket = new WebSocket(`ws://localhost:8080/javaTeste/javaTestProjectWebSocket`);
+    if(this.isClosed()){
+      this.websocket = new WebSocket(`ws://localhost:8080/javaTeste/javaTestProjectWebSocket`);
+    }
   }
 
   sendMessage(message: string){
@@ -24,6 +26,14 @@ export class WebsocketTesteJavaService {
 
   getWebSocket(){
     return this.websocket;
+  }
+
+  closeWebSocket(){
+    this.websocket?.close();
+  }
+
+  isClosed() : boolean{
+    return !this.websocket || this.websocket.readyState === WebSocket.CLOSED
   }
   
 }

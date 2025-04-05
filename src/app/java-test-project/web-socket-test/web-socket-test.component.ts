@@ -1,6 +1,7 @@
+import { interval, Subscription } from 'rxjs';
 import { WebSocketProgress } from './../../shared/models/WebSocketProgress';
 import { WebsocketTesteJavaService } from './../../shared/services/websocket-teste-java/websocket-teste-java.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng';
 
 @Component({
@@ -8,12 +9,13 @@ import { MenuItem } from 'primeng';
   templateUrl: './web-socket-test.component.html',
   styleUrls: ['./web-socket-test.component.css']
 })
-export class WebSocketTestComponent implements OnInit {
+export class WebSocketTestComponent implements OnInit, OnDestroy {
 
   constructor(private websocketTesteJavaService: WebsocketTesteJavaService) { }
 
   items: MenuItem[] = [];
   progresso: WebSocketProgress = new WebSocketProgress();
+  intervalSubscription : Subscription;
 
   ngOnInit(): void {
     this.items = [
@@ -28,26 +30,44 @@ export class WebSocketTestComponent implements OnInit {
         routerLink: "/home-page/java-test-project"
       }
      ]
-    this.websocketTesteJavaService.webSocketInit();
-    this.initWebSocketEvent();
+     this.initWebSocket();
+     this.validateWebSocket();
+  }
+
+  ngOnDestroy(): void {
+    this.intervalSubscription?.unsubscribe();
   }
 
   sendMessage(){
     //this.initWebSocket();
     console.log("status websocket: ", this.websocketTesteJavaService.getWebSocket().readyState)
-    if (this.websocketTesteJavaService.getWebSocket().readyState === WebSocket.CLOSED) {
-      this.websocketTesteJavaService.webSocketInit();
-      this.initWebSocketEvent();
+    if (this.websocketTesteJavaService.isClosed()) {
+      this.initWebSocket()
       this.websocketTesteJavaService.getWebSocket().onopen =  () => {
         this.websocketTesteJavaService.getWebSocket().send("teste");
       };
-      // Do your stuff...
    }else{
      this.websocketTesteJavaService.sendMessage("teste");
    }
   }
 
-  initWebSocketEvent(){
+  private validateWebSocket(){
+    if(!this.intervalSubscription){
+      this.intervalSubscription = interval(30000).subscribe(() => {
+        console.log("iniciando checagem websocket!!")
+        this.initWebSocket();
+      });
+    }
+  }
+
+  private initWebSocket(){
+    if(this.websocketTesteJavaService.isClosed()){
+      this.websocketTesteJavaService.webSocketInit();
+      this.initWebSocketEvent();
+    }
+  }
+
+  private initWebSocketEvent(){
    
     this.websocketTesteJavaService.getWebSocket().onmessage = ({data}) => {
       console.log("receiving websocket message: ", data ? JSON.stringify(data) : "");
@@ -57,7 +77,6 @@ export class WebSocketTestComponent implements OnInit {
 
     this.websocketTesteJavaService.getWebSocket().onclose = () => {
       console.log("web socket fechado");
-      this.websocketTesteJavaService.webSocketInit();
     }
 
     this.websocketTesteJavaService.getWebSocket().onerror = () => {
