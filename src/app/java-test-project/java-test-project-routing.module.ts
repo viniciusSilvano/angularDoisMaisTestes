@@ -24,6 +24,10 @@ const routes: Routes = [
   {
     path: 'home-page/java-test-project/web-socket-test',
     component: WebSocketTestComponent
+  },
+  { 
+    path: 'home-page/java-test-project/sse_test', 
+    loadChildren: () => import('./sse-test/sse-test.module').then(m => m.SseTestModule) 
   }
 ];
 

@@ -34,6 +34,11 @@ export class JavaTestProjectHomeComponent implements OnInit {
           routerLink:"/home-page/java-test-project/web-socket-test"
         },
         {
+          label: 'SseTest',
+          icon: 'pi pi-file',
+          routerLink:"/home-page/java-test-project/sse_test"
+        },
+        {
           label: 'Cytoscape Test',
           icon: 'pi pi-file',
           routerLink: "/home-page/java-test-project/cytoscape-test"

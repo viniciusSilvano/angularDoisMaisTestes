@@ -35,3 +35,6 @@ Node.js: 18.15.0
 
 Version 10.24.1
 
+## The Angular cli is local 
+
+use npx word before ng to use the angular's cli locally, example: npx ng g s my_service 
