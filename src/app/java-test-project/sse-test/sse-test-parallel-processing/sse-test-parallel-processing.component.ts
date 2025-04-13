@@ -26,11 +26,6 @@ export class SseTestParallelProcessingComponent implements OnInit {
         routerLink: "/home-page/java-test-project"
       },
       {
-        label: 'Java Test Project',
-        icon: 'pi pi-folder',
-        routerLink: "/home-page/java-test-project"
-      },
-      {
         label: 'Sse test',
         icon: 'pi pi-file',
         routerLink: '/home-page/java-test-project/sse_test'

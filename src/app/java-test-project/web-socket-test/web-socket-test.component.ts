@@ -15,6 +15,7 @@ export class WebSocketTestComponent implements OnInit, OnDestroy {
 
   items: MenuItem[] = [];
   progresso: WebSocketProgress = new WebSocketProgress();
+  progressAsInt: number = 0;
   intervalSubscription : Subscription;
 
   ngOnInit(): void {
@@ -28,7 +29,13 @@ export class WebSocketTestComponent implements OnInit, OnDestroy {
         label: 'Java Test Project',
         icon: 'pi pi-folder',
         routerLink: "/home-page/java-test-project"
+      },
+      {
+        label: 'Web Socket Parallel Processing test',
+        icon: 'pi pi-file',
+        routerLink: "/home-page/java-test-project/web-socket-test-parallel-processing"
       }
+      
      ]
      this.initWebSocket();
      this.validateWebSocket();
@@ -36,6 +43,7 @@ export class WebSocketTestComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.intervalSubscription?.unsubscribe();
+    this.websocketTesteJavaService.closeWebSocket();
   }
 
   sendMessage(){
@@ -53,7 +61,7 @@ export class WebSocketTestComponent implements OnInit, OnDestroy {
 
   private validateWebSocket(){
     if(!this.intervalSubscription){
-      this.intervalSubscription = interval(30000).subscribe(() => {
+      this.intervalSubscription = interval(5000).subscribe(() => {
         console.log("iniciando checagem websocket!!")
         this.initWebSocket();
       });
@@ -72,7 +80,8 @@ export class WebSocketTestComponent implements OnInit, OnDestroy {
     this.websocketTesteJavaService.getWebSocket().onmessage = ({data}) => {
       console.log("receiving websocket message: ", data ? JSON.stringify(data) : "");
       console.log(JSON.parse(data).progress);
-      this.progresso.progress = JSON.parse(data).progress;
+      //this.progresso.progress = JSON.parse(data).progress;
+      this.progressAsInt = JSON.parse(data).progress
     }
 
     this.websocketTesteJavaService.getWebSocket().onclose = () => {

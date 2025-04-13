@@ -23,7 +23,7 @@ const routes: Routes = [
   },
   {
     path: 'home-page/java-test-project/web-socket-test',
-    component: WebSocketTestComponent
+    loadChildren: () => import('./web-socket-test/web-socket-test.module').then(m => m.WebSocketTestModule) 
   },
   { 
     path: 'home-page/java-test-project/sse_test', 

@@ -29,7 +29,9 @@ export class WebsocketTesteJavaService {
   }
 
   closeWebSocket(){
-    this.websocket?.close();
+    if(this.websocket){
+      this.websocket.close();
+    }
   }
 
   isClosed() : boolean{
