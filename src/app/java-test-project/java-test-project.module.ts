@@ -9,6 +9,7 @@ import { WebSocketTestModule } from './web-socket-test/web-socket-test.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CytoscapeTestModule } from './cytoscape-test/cytoscape-test.module';
 import { ZipTestModule } from './zip-test/zip-test.module';
+import { SharedModule } from 'primeng';
 @NgModule({
   declarations: [JavaTestProjectHomeComponent],
   imports: [

@@ -1,4 +1,5 @@
 <app-main-menu [items]="items" [titulo]="'Sse Test'"></app-main-menu>
+<app-notification-button></app-notification-button>
 <p-button [label]="'start sse connection'" (click)="openSseConnection()"></p-button>
 <p>After start the sse connection, Go to the screen Sse Parallel Processing to start the progress bar!!</p>
-<p-progressBar [value]="progressAsInt"></p-progressBar>
+<p-progressBar [value]="progressAsInt" [style]="{'z-index':'-1'}"></p-progressBar>

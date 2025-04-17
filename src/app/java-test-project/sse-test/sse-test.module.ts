@@ -6,6 +6,8 @@ import { SseTestComponent } from './sse-test.component';
 import { MenusModule } from 'src/app/menu/menus.module';
 import { ButtonModule, ProgressBarModule } from 'primeng';
 import { SseTestParallelProcessingComponent } from './sse-test-parallel-processing/sse-test-parallel-processing.component';
+import { NotificationButtonComponent } from 'src/app/shared/components/notification-button/notification-button.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -15,7 +17,8 @@ import { SseTestParallelProcessingComponent } from './sse-test-parallel-processi
     MenusModule,
     ButtonModule,
     SseTestRoutingModule,
-    ProgressBarModule    
+    ProgressBarModule,
+    SharedModule  
   ]
 })
 export class SseTestModule { }
