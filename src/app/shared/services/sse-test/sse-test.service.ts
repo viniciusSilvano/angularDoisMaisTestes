@@ -12,6 +12,9 @@ export class SseTestService {
   startListening(onMessage: (event: any) => void): void {
     if (!this.eventSource || this.eventSource.CLOSED) {
       
+      if(this.eventSource){
+        this.eventSource.close();
+      }
       // Create a new EventSource to listen to the backend SSE stream
       this.eventSource = new EventSource('http://localhost:8080/javaTeste/sse_test');
 

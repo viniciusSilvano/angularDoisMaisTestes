@@ -1,0 +1,4 @@
+::ng-deep .ui-progressbar-label {
+  color: black !important; /* Or any color you want */
+  font-weight: bold;
+}
