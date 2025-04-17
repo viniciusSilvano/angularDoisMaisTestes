@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { SseTestRoutingModule } from './sse-test-routing.module';
 import { SseTestComponent } from './sse-test.component';
 import { MenusModule } from 'src/app/menu/menus.module';
-import { ButtonModule } from 'primeng';
+import { ButtonModule, ProgressBarModule } from 'primeng';
 import { SseTestParallelProcessingComponent } from './sse-test-parallel-processing/sse-test-parallel-processing.component';
 
 
@@ -14,7 +14,8 @@ import { SseTestParallelProcessingComponent } from './sse-test-parallel-processi
     CommonModule,
     MenusModule,
     ButtonModule,
-    SseTestRoutingModule    
+    SseTestRoutingModule,
+    ProgressBarModule    
   ]
 })
 export class SseTestModule { }
