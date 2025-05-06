@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng';
 import { interval, Subscription } from 'rxjs';
-import { SseTestService } from 'src/app/shared/services/sse-test/sse-test.service';
+import { SseProcessesTestService } from 'src/app/shared/services/sse-test/processes/sse-processes-test.service';
 
 @Component({
   selector: 'app-sse-test',
@@ -10,7 +10,7 @@ import { SseTestService } from 'src/app/shared/services/sse-test/sse-test.servic
 })
 export class SseTestComponent implements OnInit {
 
-  constructor(private sseTestService: SseTestService) { }
+  constructor(private sseProcessesTestService: SseProcessesTestService) { }
 
   items: MenuItem[] = [];
   progressAsInt: number = 0;
@@ -39,7 +39,7 @@ export class SseTestComponent implements OnInit {
   }
 
   openSseConnection(){
-    this.sseTestService.startListening(
+    this.sseProcessesTestService.startListening(
       (event) => {
         if(event?.data){
           console.log('mensagem recebida sse: ', event.data);
@@ -52,7 +52,6 @@ export class SseTestComponent implements OnInit {
   private validateWebSocket(){
     if(!this.intervalSubscription){
       this.intervalSubscription = interval(5000).subscribe(() => {
-        console.log("iniciando checagem Sse!!")
         this.openSseConnection();
       });
     }

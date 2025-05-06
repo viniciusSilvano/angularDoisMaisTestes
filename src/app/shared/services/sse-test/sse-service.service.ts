@@ -1,13 +1,10 @@
-import { Injectable } from '@angular/core';
-
-@Injectable({
-  providedIn: 'root'
-})
-export class SseTestService {
+export abstract class SseService {
 
   private eventSource: EventSource | null = null;
 
   constructor() { }
+
+  protected abstract getUrl() : string;
 
   startListening(onMessage: (event: any) => void): void {
     if (!this.eventSource || this.eventSource.CLOSED) {
@@ -16,7 +13,7 @@ export class SseTestService {
         this.eventSource.close();
       }
       // Create a new EventSource to listen to the backend SSE stream
-      this.eventSource = new EventSource('http://localhost:8080/javaTeste/sse_test');
+      this.eventSource = new EventSource(this.getUrl());
 
       // Handle the message event when an event is received
       this.eventSource.onmessage = onMessage

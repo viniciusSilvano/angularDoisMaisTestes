@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng';
-import { SseParallelProcessingTestService } from 'src/app/shared/services/sse-test/sse-parallel-processing-test.service';
+import { SseParallelProcessingTestService } from 'src/app/shared/services/sse-test/processes/sse-parallel-processing-test.service';
 
 @Component({
   selector: 'app-sse-test-parallel-processing',
